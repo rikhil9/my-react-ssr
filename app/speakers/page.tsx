@@ -3,6 +3,8 @@ import { delay } from "@/lib/delay";
 import SpeakerDetail from "./speaker-detail";
 import { Suspense } from 'react';
 import SpeakerDetailLoading from './speaker-detail-loading';
+import ErrorBoundayFunctionalWrapper from './error-boundary-generic';
+import ErrorBoundarySpeaker from './error-boundary-speaker';
 
 
 
@@ -25,9 +27,11 @@ export interface Session {
 
   export default async function SpeakersPage() {
     return (
+      <ErrorBoundayFunctionalWrapper>
       <Suspense fallback={<SessionsLoading />}>
         <SpeakersSession />
       </Suspense>
+      </ErrorBoundayFunctionalWrapper>
     )
 
   }
@@ -70,9 +74,11 @@ async function SpeakersSession() {
                     {session?.description}
                   </div>
                   <div className="news-tile__bottom">
+                    <ErrorBoundarySpeaker>
                   <Suspense fallback={<SpeakerDetailLoading />}>
                     <SpeakerDetail speakerId={session.speakerId ?? "0"} />
                     </Suspense>
+                    </ErrorBoundarySpeaker>
                   </div>
                 </li>
               )

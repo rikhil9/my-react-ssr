@@ -17,6 +17,9 @@ async function getSpeaker(speakerId: string) {
   if (!res.ok) {
     throw new Error("Failed to fetch speaker data");
   }
+/*   if(speakerId === "8367") {
+    throw new Error("Error in get speaker");
+  } */
   const data = await res.json();
   return data.data.speaker;
 }
