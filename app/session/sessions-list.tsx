@@ -3,8 +3,8 @@ import "server-only";
 import { SessionData } from "@/lib/ts-interfaces";
 import SessionListItem from "@/app/session/session-list-item";
 import { SessionListClient } from "./session-list-client";
+import { delay } from "@/lib/delay";
 
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function getSessionsList() {
   await delay(3000);

@@ -18,6 +18,11 @@ export default function AppHeader() {
       <Link href="/session" className="btn btn-outline-primary">
         Session →
       </Link>
+
+      <Link href="/speakers" className="btn btn-outline-primary">
+        Speakers →
+      </Link>
+
     </AppContainer>
   );
 }

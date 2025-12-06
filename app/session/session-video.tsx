@@ -1,7 +1,7 @@
+import { delay } from "@/lib/delay";
 import getRandomNumber from "@/lib/getRandomNumber";
 import "server-only";
 
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function getSessionVideo(id: string) {
   await delay(getRandomNumber(1000, 4000));
