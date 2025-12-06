@@ -7,5 +7,5 @@ export async function saveNameAction(formData: FormData) {
 
   console.log("Saving name:", { name });
 
-  return ({ ok: true });
+  return { ok: true };
 }

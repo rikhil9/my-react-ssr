@@ -1,7 +1,10 @@
 "use client";
 import { createContext, useState } from "react";
 
-export const ThemeContext = createContext({darkTheme: false, setDarkTheme: (darkTheme: boolean) => void 0});
+export const ThemeContext = createContext({
+  darkTheme: false,
+  setDarkTheme: (darkTheme: boolean) => void 0,
+});
 
 export default function AppThemeProvider({
   children,

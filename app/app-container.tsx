@@ -3,22 +3,32 @@
 import { useContext } from "react";
 import { ThemeContext } from "./app-theme-provider";
 
+export default function AppContainer({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const { darkTheme, setDarkTheme } = useContext(ThemeContext);
 
-export default function AppContainer({children}: {children: React.ReactNode}) {
-
-    const {darkTheme, setDarkTheme} = useContext(ThemeContext);
-
-    const className = darkTheme
+  const className = darkTheme
     ? "container bg-dark text-light m-4 w-auto"
     : "container bg-light text-dark m-4 w-auto";
-    return (
-        <div className={className}>
-            <div className="form-check form-switch">
-    <input type="checkbox" className="form-check-input" id="darkThemeSwitch" onChange={() => setDarkTheme(!darkTheme)} checked={darkTheme} />
-<label className="form-check-label" htmlFor="darkThemeSwitch">Toggle Theme</label>
-            </div>
-            <hr/>
-            {children}
-        </div>
-    )
+  return (
+    <div className={className}>
+      <div className="form-check form-switch">
+        <input
+          type="checkbox"
+          className="form-check-input"
+          id="darkThemeSwitch"
+          onChange={() => setDarkTheme(!darkTheme)}
+          checked={darkTheme}
+        />
+        <label className="form-check-label" htmlFor="darkThemeSwitch">
+          Toggle Theme
+        </label>
+      </div>
+      <hr />
+      {children}
+    </div>
+  );
 }

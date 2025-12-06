@@ -2,22 +2,21 @@
   border-radius: 10px 10px;
   padding: 4px;
   margin: 3px;
-  border: 3px solid #FFC942;
-
+  border: 3px solid #ffc942;
 }
 
 .borderRcc {
   border-radius: 10px 10px;
   padding: 4px;
   margin: 3px;
-  border: 3px solid #FF7B01;
+  border: 3px solid #ff7b01;
 }
 
 .borderCustom {
   border-radius: 10px 10px;
   padding: 4px;
   margin: 3px;
-  border: 3px solid #770EF7;
+  border: 3px solid #770ef7;
   border-style: dashed !important;
 }
 
@@ -26,5 +25,4 @@
   padding: 4px;
   margin: 3px;
   border: 3px solid #00000000;
-
 }
