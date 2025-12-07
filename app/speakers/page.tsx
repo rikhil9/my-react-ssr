@@ -3,15 +3,8 @@ import { delay } from "@/lib/delay";
 import SpeakerDetail from "./speaker-detail";
 import { Suspense } from "react";
 import SpeakerDetailLoading from "./speaker-detail-loading";
-import ErrorBoundayFunctionalWrapper from "./error-boundary-generic";
 import ErrorBoundarySpeaker from "./error-boundary-speaker";
-
-export interface Session {
-  id?: string;
-  title?: string;
-  speakerId?: string;
-  description?: string;
-}
+import { Session } from "./code-camp-interfaces";
 
 async function getSessions() {
   await delay(2000); // 2 seconds
@@ -19,44 +12,12 @@ async function getSessions() {
   if (!res.ok) {
     throw new Error("Failed to fetch sessions data");
   }
+  //throw new Error("Failed to fetch sessions data");
   const data = await res.json();
   return data.data.sessions;
 }
 
 export default async function SpeakersPage() {
-  return (
-    <ErrorBoundayFunctionalWrapper>
-      <Suspense fallback={<SessionsLoading />}>
-        <SpeakersSession />
-      </Suspense>
-    </ErrorBoundayFunctionalWrapper>
-  );
-}
-
-function SessionsLoading() {
-  return (
-    <div className="container-main">
-      <div className="sessions">
-        <div className="news-list">
-          {[1, 2, 3].map(() => {
-            return (
-              <li className="news-tile">
-                <div className="news-tile__top">
-                  <h3 className="news-tile__title">Loading...</h3>
-                </div>
-                <div className="news-tile__bottom">
-                  <SpeakerDetailLoading />
-                </div>
-              </li>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-async function SpeakersSession() {
   const sessions = await getSessions();
   return (
     <div className="container-main">

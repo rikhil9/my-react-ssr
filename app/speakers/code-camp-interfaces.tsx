@@ -1,0 +1,14 @@
+export interface Speaker {
+  id?: string;
+  first?: string;
+  last?: string;
+  bio?: string;
+  sessionId?: string;
+}
+
+export interface Session {
+  id?: string;
+  title?: string;
+  speakerId?: string;
+  description?: string;
+}
