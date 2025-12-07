@@ -22,7 +22,6 @@ export default function AppHeader() {
       <Link href="/speakers" className="btn btn-outline-primary">
         Speakers →
       </Link>
-
     </AppContainer>
   );
 }

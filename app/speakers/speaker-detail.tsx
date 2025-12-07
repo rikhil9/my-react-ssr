@@ -1,4 +1,4 @@
-import 'server-only';
+import "server-only";
 import Image from "next/image";
 import { delay } from "@/lib/delay";
 
@@ -13,18 +13,22 @@ export interface Speaker {
 async function getSpeaker(speakerId: string) {
   await delay(2000);
 
-  const res = await fetch(`http://localhost:3000/api/speakersdata?id=${speakerId}`);
+  const res = await fetch(
+    `http://localhost:3000/api/speakersdata?id=${speakerId}`,
+  );
   if (!res.ok) {
     throw new Error("Failed to fetch speaker data");
   }
-/*   if(speakerId === "8367") {
+  /*   if(speakerId === "8367") {
     throw new Error("Error in get speaker");
   } */
   const data = await res.json();
   return data.data.speaker;
 }
 
-export default async function SpeakerDetail({ speakerId }: {
+export default async function SpeakerDetail({
+  speakerId,
+}: {
   speakerId: string;
 }) {
   const speaker: Speaker = await getSpeaker(speakerId);
@@ -35,7 +39,9 @@ export default async function SpeakerDetail({ speakerId }: {
           <Image
             src={`/speakers/speaker-${speaker?.id}.jpg`}
             alt={`${speaker.first} ${speaker.last}`}
-            width={135} height={135} />
+            width={135}
+            height={135}
+          />
         </div>
         <div className="events-speaker-description">
           <a href="#">

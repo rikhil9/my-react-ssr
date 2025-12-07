@@ -5,7 +5,6 @@ import SessionListItem from "@/app/session/session-list-item";
 import { SessionListClient } from "./session-list-client";
 import { delay } from "@/lib/delay";
 
-
 async function getSessionsList() {
   await delay(3000);
   const res = await fetch(`http://localhost:3000/api/sessiondata?max=11`);

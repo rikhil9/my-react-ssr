@@ -2,7 +2,6 @@ import { delay } from "@/lib/delay";
 import getRandomNumber from "@/lib/getRandomNumber";
 import "server-only";
 
-
 async function getSessionVideo(id: string) {
   await delay(getRandomNumber(1000, 4000));
   const res = await fetch(`http://localhost:3000/api/youtubedata/${id}`);

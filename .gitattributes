@@ -1,0 +1,10 @@
+# Mark CSS files as vendored (won't count toward language stats)
+*.css linguist-vendored
+
+# Ensure TypeScript/TSX files are detected correctly
+*.ts linguist-language=TypeScript
+*.tsx linguist-language=TypeScript
+
+# Mark JSON data files as generated (won't count toward stats)
+data/*.json linguist-generated
+

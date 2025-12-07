@@ -26,7 +26,7 @@ export async function GET(req: Request) {
     let filteredSessions = sessions;
     if (speakerId) {
       filteredSessions = sessions.filter(
-        (session: { speakerId: string }) => session.speakerId === speakerId
+        (session: { speakerId: string }) => session.speakerId === speakerId,
       );
     }
 
@@ -43,4 +43,3 @@ export async function GET(req: Request) {
     );
   }
 }
-
