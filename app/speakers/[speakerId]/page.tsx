@@ -1,24 +1,21 @@
-import { Speaker } from "@/app/seminars/code-camp-interfaces";
+import { Speaker } from "@/app/(seminars)/seminars/code-camp-interfaces";
 import { delay } from "@/lib/delay";
 import SpeakerDetailWithBio from "../speaker-detail-with-bio";
 
 async function getSpeaker(id: string) {
   await delay(2000);
 
-  const res = await fetch(
-    `http://localhost:3000/api/speakersdata`,
-  );
+  const res = await fetch(`http://localhost:3000/api/speakersdata`);
   if (!res.ok) {
     throw new Error("Failed to fetch speaker data");
   }
- /*     if(id === "8367") {
+  /*     if(id === "8367") {
     throw new Error("Error in get speaker");
   }  */
   const data = await res.json();
 
-
   return (
-    data.data.speakers.find((speaker : Speaker) => speaker.id === id) || {
+    data.data.speakers.find((speaker: Speaker) => speaker.id === id) || {
       id: "not found",
       first: "not found",
       last: "not found",
@@ -28,12 +25,10 @@ async function getSpeaker(id: string) {
   );
 }
 
-
-
 export default async function SpeakerDetailById({
   params,
 }: {
-  params: Promise<{ speakerId: string }>
+  params: Promise<{ speakerId: string }>;
 }) {
   const { speakerId } = await params;
   const speaker: Speaker = await getSpeaker(speakerId);
@@ -47,5 +42,4 @@ export default async function SpeakerDetailById({
       </div>
     </div>
   );
-  
 }

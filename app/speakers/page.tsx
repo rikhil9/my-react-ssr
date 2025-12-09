@@ -1,22 +1,20 @@
 import { delay } from "@/lib/delay";
-import { Speaker } from "../seminars/code-camp-interfaces";
+import { Speaker } from "../(seminars)/seminars/code-camp-interfaces";
 import SpeakerDetailWithBio from "./speaker-detail-with-bio";
 
 async function getSpeakers() {
-    await delay(2000);
-  
-    const res = await fetch(
-      `http://localhost:3000/api/speakersdata`,
-    );
-    if (!res.ok) {
-      throw new Error("Failed to fetch speaker data");
-    }
-    /*   if(speakerId === "8367") {
+  await delay(2000);
+
+  const res = await fetch(`http://localhost:3000/api/speakersdata`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch speaker data");
+  }
+  /*   if(speakerId === "8367") {
       throw new Error("Error in get speaker");
     } */
-    const data = await res.json();
-    return data.data.speakers;
-  }
+  const data = await res.json();
+  return data.data.speakers;
+}
 
 export default async function Speakers() {
   const speakers: Speaker[] = await getSpeakers();

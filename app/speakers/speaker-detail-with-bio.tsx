@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Speaker } from "../seminars/code-camp-interfaces";
+import { Speaker } from "../(seminars)/seminars/code-camp-interfaces";
 
 export default function SpeakerDetailWithBio({
   speaker,

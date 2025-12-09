@@ -40,7 +40,7 @@ export default async function SpeakerDetail({
             />
           </div>
           <div className="events-speaker-description">
-          <Link href={`/speakers/${speaker.id}`}>
+            <Link href={`/speakers/${speaker.id}`}>
               <div className="name">
                 {speaker.first} {speaker.last}
               </div>
