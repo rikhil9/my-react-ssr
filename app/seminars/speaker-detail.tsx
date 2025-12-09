@@ -3,6 +3,7 @@ import Image from "next/image";
 import { delay } from "@/lib/delay";
 import ToolTipSpeaker from "./tooltip-speaker";
 import { Speaker } from "./code-camp-interfaces";
+import Link from "next/link";
 
 async function getSpeaker(speakerId: string) {
   await delay(2000);
@@ -39,11 +40,11 @@ export default async function SpeakerDetail({
             />
           </div>
           <div className="events-speaker-description">
-            <a href="#">
+          <Link href={`/speakers/${speaker.id}`}>
               <div className="name">
                 {speaker.first} {speaker.last}
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
