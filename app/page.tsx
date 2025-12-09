@@ -19,8 +19,8 @@ export default function AppHeader() {
         Session →
       </Link>
 
-      <Link href="/speakers" className="btn btn-outline-primary">
-        Speakers →
+      <Link href="/seminars" className="btn btn-outline-primary">
+        Seminars →
       </Link>
     </AppContainer>
   );
